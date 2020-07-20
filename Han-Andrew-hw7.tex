@@ -69,61 +69,77 @@ used is worth 5 points).]
 }
 \end{problem}
 \begin{solution}
-To determine a formula for $f(n)$, we will need to observe the sequence in sets of three because the definition gives us the first three terms and every following term will reflect one of these. The first three elements, after what is given, are below $$ f(3) = 2 * f(0) = 2 $$ $$ f(4) = 2*f(1) = 0 $$ $$ f(5) = 2*f(2) = 4 $$ We can think of the terms of this sequence based on the remainders each n has when divided with 3, which can be denoted by using the modulo operator. Looking at n = 3,4,5, we can create a formula based on n \% 3. $$ n = 3; n \% 3 = 0 $$ $$ f(3) = 2^{1} = 2^{n/3} $$ $$ n = 4; n \% 3 = 1 $$ $$ f(4) = 0 $$ $$ n =5; n \% 3 =2$$ $$ f(5) = 2^{2} = 2^{(n+1)/3} $$ If we piece these together, we can write out a formula like this $$ \text{ if } n \% 3 = 0, f(n) = 2^{n/3} $$ $$ \text{ if } n \% 3 = 1, f(n) = 0 $$ $$ \text{ if } n \% 3 = 2, f(n) = 2^{(n+1)/3} $$ To prove this formula, we use strong induction \\* \textbf{Base Step:} find f(n) for n $\leq$ 3 $$ f(0) = 1 = 2^{0/3} = 1 \text{ because } 0 \% 3 = 0$$ $$ f(1) = 0 = 0 \text{ because }1 \% 3 = 1 $$ $$ f(2) = 2 = 2^{(2+1)/3} = 2 \text{ because } 2 \% 3 = 2$$ Claim holds for n = 0,1,2 \\* \textbf{Induction step:} As strong induction hypothesis, assume that f(i) holds for all i with $0 \leq i < n$ for all $n \geq 3$ $$  $$
+To determine a formula for $f(n)$, we will need to observe the sequence in sets of three because the definition gives us the first three terms and every following term will reflect one of these. The first three elements, after what is given, are below $$ f(3) = 2 * f(0) = 2 $$ $$ f(4) = 2*f(1) = 0 $$ $$ f(5) = 2*f(2) = 4 $$ We can think of the terms of this sequence based on the remainders each n has when divided with 3, which can be denoted by using the modulo operator. Looking at n = 3,4,5, we can create a formula based on n \% 3. $$ n = 3; n \% 3 = 0 $$ $$ f(3) = 2^{1} = 2^{n/3} $$ $$ n = 4; n \% 3 = 1 $$ $$ f(4) = 0 $$ $$ n =5; n \% 3 =2$$ $$ f(5) = 2^{2} = 2^{(n+1)/3} $$ If we piece these together, we can write out a formula like this $$ \text{ if } n \% 3 = 0, f(n) = 2^{n/3} $$ $$ \text{ if } n \% 3 = 1, f(n) = 0 $$ $$ \text{ if } n \% 3 = 2, f(n) = 2^{(n+1)/3} $$ To prove this formula, we use strong induction \\* \textbf{Base Step:} find f(n) for n $\leq$ 3 $$ f(0) = 1 = 2^{0/3} = 1 \text{ because } 0 \% 3 = 0$$ $$ f(1) = 0 = 0 \text{ because }1 \% 3 = 1 $$ $$ f(2) = 2 = 2^{(2+1)/3} = 2 \text{ because } 2 \% 3 = 2$$ Claim holds for n = 0,1,2 \\* \textbf{Induction step:} As strong induction hypothesis, assume that f(i) holds for all i with $3 \leq i < n$ for all $n \geq 3$ \\* \\* if i\%3 =0  $$ f(n) = 2*f(n-3) = 2*2^{(n-3)/3)} \text{ by S.I.H} $$ $$ = 2^{((n-3)/3)+1} = 2^{n/3}$$ \\* if i \% 3 = 1 $$  f(n) = 2*f(n-3) = 2*0 = 0 \text{ by S.I.H} $$ \\* if i  \% 3 = 2 $$  f(n) = 2*f(n-3) = 2*2^{(n-3)+1/3} \text{ by S.I.H}$$ $$ = 2*2^{((n-3)+1/3)+1} = 2^{n+1/3} $$ Thus, f(n) holds for all integers n $\geq 3$ by strong induction on n.
 \end{solution}
+
 
 \begin{problem} ($5+10=15$ points) 
 Section 5.3, Exercise 28 a) and b), page 379
 \end{problem}
 \begin{solution}
+\textbf{a)} The first five applications of the recursive definition are as follows. \\* First: (2,3), (3,2) \\* Second: (4,6), (5,5), (6,4) \\* Third: (6,9), (7,8), (8,7), (9,6) \\* Fourth: (8,12),(9,11),(10,10),(11,9),(12,8) \\* Fifth: (10,15),(11,14),(12,13),(13,12),(14,11),(15,10) \\*
+\textbf{b) Base Step:} Let the expression be shown as P(n), such that if $5 \mid (a+b), then (a,b) \in S$ $$P(0): a =0, b=0; 5 \mid (0+0) = 5 \mid 0 \text{ which means } (0,0) \in S$$ Thus, the claim holds for P(0). \\* \textbf{Induction Step:} As strong induction hypothesis, suppose that P(k) holds for all $0 \leq k < n$ for every non-negetive integer n.\\*  P(k+1): Will contain a list of elements derived by applying (a+2,b+3) and (a+3,b+2) to all the pairs that were derived in the previous application,P(k), by S.I.H. Starting from the base case, P(0), each application of this recursive definition will be building up from the first element (0,0). Each application will either be adding (a+2,b+3) or (a+3,b+2). This means that in both scenarios, a+b is being increased by 5 overall, because 2+3 = 3+2 = 5. We showed that for (0,0), 0+0 will be divisible by 5, so every following element in S will also be divisible by 5 if each application is only increasing a+b by 5 each time. Therefore, P(n) holds by strong induction on n.
 \end{solution}
 
 \begin{problem} (5 points)
 Section 6.1, Exercise 12, page 417
 \end{problem}
 \begin{solution} 
+Using product rule, we can find the combinations of bit strings for each different length and then add them together. \\*
+$2^{6} + 2^{5} + 2^{4} + 2^{3} + 2^{2} + 2^{1}  = 126 \text{ bit strings} $
 \end{solution}
 
 \begin{problem} (5 points)
 Section 6.1, Exercise 14, page 417
 \end{problem}
-\begin{solution} 
+\begin{solution}
+ The first and last term will be 1, while everything in between can be 0 or 1. This means that n-2 terms will have to be chosen. Therefore, the number of bit strings will be $2^{n-2}$ while $n\geq2$. If n happens to be 1, that means both the only term, first and last term, will be 1 and there will only be one possible combination in that case.
 \end{solution}
 
 \begin{problem} (5 points $\times$ 3 = 15 points)
 Section 6.1, Exercise 20, page 417
 \end{problem}
 \begin{solution} 
+\textbf{a)} 9 integers. 6,9,12,15,18,21,24,27,30. \\*
+\textbf{b)} 6 integers. 8,12,16,20,24,28.\\*
+\textbf{c)} 2 integers. 12, 24 
 \end{solution}
 
 \begin{problem} (5 points $\times$ 3 = 15 points)
 Section 6.1, Exercise 24 a), c) and e), page 417.  Explain.
 \end{problem}
 \begin{solution} 
+\textbf{a)} Including both 1000 and 9999, there will be 9000 integers between them total. Starting from 1000, every 9 terms, there will be an integer divisible by 9. Therefore, 9000/9 = 1000 integers. \\*
+\textbf{c)} The first integer can only be a digit from 1-9 because we are only looking at integers from 1000 to 9999. This means the first digit has 9 possible combinations. The next place cannot be the same digit as before, however, 0 can be an option now which gives the second place 9 options as well. The third place will have 8 possible options once 2 digits have already been picked and the fourth place will have 7 possible options. $9*9*8*7 = 4536$ integers. \\* 
+\textbf{e)} There are 9000/5 = 1800 integers divisible 5 between 1000 and 9999. Using the same approach for numbers divisible by 7 gives us 9000/7 = 1285.714. We need to observe the integers within the upper and lower bounds of 1000 + 7*1285 and 1000+ 7*1286 to figure out if there will be 1285 integers divisible by 7 or 1286 integers. From 9995 to 10002, it turns out that 9996 is also divisible by 7, giving us 1286 total integers. Several integers will be counted twice as integers divisible by 5 and 7. The LCD of 5 and 7 is 35, so 9000/35 = 257.143. Similar to the last situation with a remainder, we need to check the integers from 9995 to 9999 to see any possible numbers that are divisible by 5 and 7. Because 9995 will be the last number divisible by 5 in our range, there will be 257 total integers divisible by 5 and 7. We can now complete the subtraction rule: $1800+1285-27 = 2829$ integers.
 \end{solution}
 
 \begin{problem} (5 points)
 Section 6.2, Exercise 6, page 426. Explain.
 \end{problem}
-\begin{solution} 
+\begin{solution}
+There are 101 possible scores on an exam if the scale is 0 to 100. If there are 6 professors giving the same exam, there are 606 possible professor/exam score combinations possible. Therefore, you will need 607 students to guarantee that there are two students with the same professor who earne the same final examination score. 
 \end{solution}
 
 \begin{problem} (10 points)
 Section 6.2, Exercise 12, page 426.  Explain.
 \end{problem}
 \begin{solution} 
+The midpoint formula between two coordinates will be $$ (\frac{x_{1}+x_{2}}{2}, \frac{y_{1}+y_{2}}{2}) $$ Because we are looking for a midpoint with integer coordinates, the numerator for each coordinate needs to be even in order to get an integer after dividing by 2. Dividing an odd number by 2 results in a non-whole number. By definition, a number can either be even or odd. So, looking at the possible combinations between two integers, there will be 4 total. $$ \text{even,even}$$ $$\text{even,odd}$$ $$ \text{odd,even}$$ $$ \text{odd,odd}$$ In order to get an even number when adding two numbers, both numbers will need to either be both even or both odd. For example, $$ 2+4=6$$ $$ 3 + 5 = 8$$ Looking back at the problem, we can achieve this sort of addition by simply adding a pair with a pair with the same properties. The problem gives us 5 different points to look at, meaning we are guaranteed to have at least one pair that is going to share the same properties as one of the other four, in terms of whether its coordinates are even or odd. If one of these pairs being added share the same properties, the midpoint formula will have integer coordinates.
 \end{solution}
 
 \begin{problem} (10 points)
 Section 6.2, Exercise 14, page 426. Explain.
 \end{problem}
 \begin{solution} 
+If an integer has mod 5 applied to it, there are 5 possible remainders: 0,1,2,3,4. Because we are looking at an ordered pair of integers, (a,b), the possible number of combinations of a mod 5 and b mod 5 results is going to be $5 * 5 =25$ Therefore, in order for there to be two ordered pairs where $a_{1}$ mod 5 = $a_{2}$ mod 5 and $b_{1}$ mod 5 = $b_{2}$ mod 5, we will need 26 ordered pairs to guarantee that two of these pairs will have the same results.
 \end{solution}
 
 \begin{problem} (10 points)
 Section 6.2, Exercise 48, page 428. Explain.
 \end{problem}
 \begin{solution} 
+Seeking a contradiction, we can rewrite the expression to say that for every i, where i = 1,2,...,t,$i$th box will contain at most $n_{i} - 1$ objects. $$ (n_{1}-1) + (n_{2}-1) + (n_{3}-1)+...+(n_{t}-1)$$ Each term is being subtracted by 1. This means if there are t terms, the entire sequence is subtracted by 1 t times. The expression can be rewritten as $$ n_{1} + n_{2} + n_{3}+...+ (n_{t}-t)$$ This means that there will be $n_{t}-t$ objects. This contradicts the claim that $n_{1}+n_{2}+n_{3}+...+n_{t}-t+1$ objects will be placed into $t$ boxes, meaning the claim holds through contradiction. 
 \end{solution}
 
 \bigskip
