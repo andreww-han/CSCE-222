@@ -1,0 +1,133 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,xcolor}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+\newcommand{\name}[2]{\noindent\textbf{Name: #1}\hfill \textbf{UIN: #2}}
+\newcommand{\honor}{\noindent On my honor, as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the
+  academic work included in this assignment. Furthermore, I have
+  disclosed all resources (people, books, web sites, etc.) that have
+  been used to prepare this homework. \\[2ex]
+ \textbf{Electronic Signature: \underline{ Andrew Han } } }
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+\begin{compactitem}[$\Box$] 
+\item Did you type in your name and UIN? 
+\item Did you disclose all resources that you have used? \\
+(This includes all people, books, websites, etc.\ that you have consulted.)
+\item Did you electronically sign that you followed the Aggie Honor Code? 
+\item Did you solve all problems? 
+\item Did you submit both of the .tex and .pdf files of your homework to the correct link 
+on eCampus? 
+\end{compactitem}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Problem Set #1}\end{center}}
+\newcommand{\duedate}[1]{\begin{quote}\textbf{Due dates:} Electronic
+    submission of \textsl{yourLastName-yourFirstName-hw7.tex} and 
+    \textsl{yourLastName-yourFirstName-hw7.pdf} files of this homework is due on
+    \textbf{#1} on \texttt{http://ecampus.tamu.edu}. You will see two separate links
+    to turn in the .tex file and the .pdf file separately. Please do not archive or compress the files.  
+    \textbf{If any of the two submissions are missing, you will likely receive zero points for this 
+    homework.}\end{quote} }
+
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\Z}{\mathbf{Z}}
+
+
+\begin{document}
+\vspace*{-15mm}
+\begin{center}
+{\large
+CSCE 222 [Sections 503, 504] Discrete Structures for Computing\\[.5ex]
+Fall 2019 -- Hyunyoung Lee\\}
+\end{center}
+\problemset{7}
+\duedate{\color{red} Friday, 10/25/2019 before 10:00 p.m.}
+\name{ Andrew Han }{ 227009495 }
+\begin{resources} Discrete Mathematics and its Applications 8th Edition
+\end{resources}
+\honor
+
+\bigskip
+\noindent
+Total 100 + 10 (extra credit) points.
+
+\begin{problem} ($10+10=20$ points) 
+Section 5.3, Exercise 6 b), page 378.  Prove your formula using 
+strong induction.\\[1ex]
+{\color{blue}
+[Grading rubric: Finding a formula for $f(n)$ is worth 10 points and proving that 
+your formula is valid is worth 10 points, where the base step is worth 3 points and the inductive step
+is worth 7 points (stating the strong induction hypothesis correctly and specifying where it is
+used is worth 5 points).]
+}
+\end{problem}
+\begin{solution}
+To determine a formula for $f(n)$, we will need to observe the sequence in sets of three because the definition gives us the first three terms and every following term will reflect one of these. The first three elements, after what is given, are below $$ f(3) = 2 * f(0) = 2 $$ $$ f(4) = 2*f(1) = 0 $$ $$ f(5) = 2*f(2) = 4 $$ We can think of the terms of this sequence based on the remainders each n has when divided with 3, which can be denoted by using the modulo operator. Looking at n = 3,4,5, we can create a formula based on n \% 3. $$ n = 3; n \% 3 = 0 $$ $$ f(3) = 2^{1} = 2^{n/3} $$ $$ n = 4; n \% 3 = 1 $$ $$ f(4) = 0 $$ $$ n =5; n \% 3 =2$$ $$ f(5) = 2^{2} = 2^{(n+1)/3} $$ If we piece these together, we can write out a formula like this $$ \text{ if } n \% 3 = 0, f(n) = 2^{n/3} $$ $$ \text{ if } n \% 3 = 1, f(n) = 0 $$ $$ \text{ if } n \% 3 = 2, f(n) = 2^{(n+1)/3} $$ To prove this formula, we use strong induction \\* \textbf{Base Step:} find f(n) for n $\leq$ 3 $$ f(0) = 1 = 2^{0/3} = 1 \text{ because } 0 \% 3 = 0$$ $$ f(1) = 0 = 0 \text{ because }1 \% 3 = 1 $$ $$ f(2) = 2 = 2^{(2+1)/3} = 2 \text{ because } 2 \% 3 = 2$$ Claim holds for n = 0,1,2 \\* \textbf{Induction step:} As strong induction hypothesis, assume that f(i) holds for all i with $0 \leq i < n$ for all $n \geq 3$ $$  $$
+\end{solution}
+
+\begin{problem} ($5+10=15$ points) 
+Section 5.3, Exercise 28 a) and b), page 379
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem} (5 points)
+Section 6.1, Exercise 12, page 417
+\end{problem}
+\begin{solution} 
+\end{solution}
+
+\begin{problem} (5 points)
+Section 6.1, Exercise 14, page 417
+\end{problem}
+\begin{solution} 
+\end{solution}
+
+\begin{problem} (5 points $\times$ 3 = 15 points)
+Section 6.1, Exercise 20, page 417
+\end{problem}
+\begin{solution} 
+\end{solution}
+
+\begin{problem} (5 points $\times$ 3 = 15 points)
+Section 6.1, Exercise 24 a), c) and e), page 417.  Explain.
+\end{problem}
+\begin{solution} 
+\end{solution}
+
+\begin{problem} (5 points)
+Section 6.2, Exercise 6, page 426. Explain.
+\end{problem}
+\begin{solution} 
+\end{solution}
+
+\begin{problem} (10 points)
+Section 6.2, Exercise 12, page 426.  Explain.
+\end{problem}
+\begin{solution} 
+\end{solution}
+
+\begin{problem} (10 points)
+Section 6.2, Exercise 14, page 426. Explain.
+\end{problem}
+\begin{solution} 
+\end{solution}
+
+\begin{problem} (10 points)
+Section 6.2, Exercise 48, page 428. Explain.
+\end{problem}
+\begin{solution} 
+\end{solution}
+
+\bigskip
+
+\goodbreak
+\checklist
+\end{document}

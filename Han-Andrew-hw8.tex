@@ -1,0 +1,136 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+\newcommand{\name}[2]{\noindent\textbf{Name: #1}\hfill \textbf{UIN: #2}}
+\newcommand{\honor}{\noindent On my honor, as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the
+  academic work included in this assignment. Furthermore, I have
+  disclosed all resources (people, books, web sites, etc.) that have
+  been used to prepare this homework. \\[2ex]
+ \textbf{Electronic Signature: \underline{ Andrew Han } } }
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+\begin{compactitem}[$\Box$] 
+\item Did you type in your name and UIN? 
+\item Did you disclose all resources that you have used? \\
+(This includes all people, books, websites, etc.\ that you have consulted.)
+\item Did you electronically sign that you followed the Aggie Honor Code? 
+\item Did you solve all problems? 
+\item Did you submit both of the .tex and .pdf files of your homework to the correct link 
+on eCampus? 
+\end{compactitem}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Problem Set #1}\end{center}}
+\newcommand{\duedate}[1]{\begin{quote}\textbf{Due dates:} Electronic
+    submission of \textsl{yourLastName-yourFirstName-hw8.tex} and 
+    \textsl{yourLastName-yourFirstName-hw8.pdf} files of this homework is due on
+    \textbf{#1} on \texttt{http://ecampus.tamu.edu}. You will see two separate links
+    to turn in the .tex file and the .pdf file separately. Please do not archive or compress the files.  
+    \textbf{If any of the two submissions are missing, you will likely receive zero points for this 
+    homework.}\end{quote} }
+
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\Z}{\mathbf{Z}}
+
+
+\begin{document}
+\vspace*{-15mm}
+\begin{center}
+{\large
+CSCE 222 [Sections 503, 504] Discrete Structures for Computing\\[.5ex]
+Fall 2019 -- Hyunyoung Lee\\}
+\end{center}
+\problemset{8}
+\duedate{Friday, 11/8/2019 before 10:00 p.m.}
+\name{ Andrew Han }{ 227009495 }
+\begin{resources} Discrete Mathematics and its Applications 8th Edition
+\end{resources}
+\honor
+
+\bigskip
+\noindent
+Total 100 points.
+
+\begin{problem} (2.5 points $\times$ 4 = 10 points)
+Section 6.3, Exercise 20, page 435
+\end{problem}
+\begin{solution}
+\textbf{a)} $ 10 \choose 3 $  = 120 \\
+\textbf{b)} At least 6 0s. $ 10 \choose 6$ + $ 10 \choose 7$ + $10 \choose 8$ + $10 \choose 9$ + $10 \choose 10$ = 386 \\
+\textbf{c)} At least seven 1s is the same as at most 3 0s. $10 \choose 0$ + $10 \choose 1$ + $10 \choose 2$ + $10 \choose 3$ = 176 \\
+\textbf{d)} At least three 1s is the same as the total combinations subtracted by the strings with at most 2 1s. $2^{10} = 1024$ - $10 \choose 0$ - $10 \choose 1$ - $10 \choose 2$ = 968
+\end{solution}
+
+\begin{problem} (2 points $\times$ 5 = 10 points)
+Section 6.3, Exercise 22 b), c), d), e), and f), page 435
+\end{problem}
+\begin{solution} 
+\textbf{b)} $6! = 720$ \\ 
+\textbf{c)} $5! = 120$ \\ 
+\textbf{d)} $5! = 120$ \\ 
+\textbf{e)} $4! = 24$ \\ 
+\textbf{f)} Not possible to have both. If BCA exists, then ABF cannot exist and vice versa.  
+\end{solution}
+
+\begin{problem} (5 points $\times$ 2 = 10 points)
+Section 6.4, Exercise 12 a) and b), page 444
+\end{problem}
+\begin{solution} 
+\textbf{a)} $6 \choose 3$ * $(5x^{2})^{(6-3)}$ * $(2y^{3})^{3}$ \\ $6 \choose 3$ * $(5^{3})(2^{3}) x^{6}y^{9}$ \\ Coefficient is $20 * 125 * 8 = 20000$ \\ 
+\textbf{b)} $ 6 \choose 5$ * $(5x^{2})^{(6-5)}$ * $(2y^{3})^{5}$ \\ $6 \choose 5$ * $(5^{1})(2^{5}) x^{2}y^{15}$ \\ Coefficient is $6 * 5 * 32 = 960$
+\end{solution} 
+
+\begin{problem} ($10+3+7=20$ points)
+Section 8.1, Exercise 10, page 537. For a) and c), explain and show your work.
+\end{problem}
+\begin{solution}
+\textbf{a)} Looking at a bit string a of length n, if you look at one number, the total number of bit strings containing the string 01 is going to be $a_{n-1}$, which we should already know through recursion. Now we can look at two numbers and the remaining bit string is going to be length of n-2. Looking at three, the remaining bit string is going to be length of n-3 and so on. Using this info, you can make a geometric sequence as follows. $$ \sum_{k = 0}^{n-2} 2^{k} $$ By using the definition of the sum of a geometric sequence, we can write this as $$ 2^{n-1} -1 $$ To get our closed form for $a_{n}$, we need to go back and add the $a_{n-1}$ that was found recursively  to get $$ a_{n} = a_{n-1} + 2^{n-1} -1$$ \\
+\textbf{b)} A string needs to have at least a length of 2 to contain 01. That means the initial conditions are $a_{0} =0$ and $a_{1} = 0$ \\
+\textbf{c)} $$ a_{0} = 0 $$ $$a_{1} = 0 $$ $$ a_{2} = a_{1} +2^1 - 1 = 1$$ $$ a_{3} = a_{2} +2^2 - 1 = 4$$ 
+$$ a_{4} = a_{3} +2^3 - 1 = 11$$ $$ a_{5} = a_{4} +2^4 - 1 = 26$$ $$ a_{6} = a_{5} +2^5 - 1 = 57$$ $$ a_{7} = a_{6} +2^6 - 1 = 120$$ 
+
+\end{solution}
+
+\begin{problem} (20 points)
+Section 8.1, Exercise 28, page 538. This problem has two parts as below.
+\end{problem}
+\begin{solution} 
+\ \\
+a) (10 points) \textit{Show that the Fibonacci numbers satisfy \ldots}\\[2ex] \\ The Fibonacci sequence is defined as $f_{n} = f_{n-1} + f_{n-2}$ We can expand this out to see if the recurrence relation given will satisfy this. $$f_{n} = f_{n-1} + f_{n-2} $$ $$ = (f_{n-2}+f_{n-3}) + (f_{n-3}+f_{n-4}) = f_{n-2} + 2f_{n-3} + f_{n-4}$$ $$ = (f_{n-3} + f_{n-4}) + 2*(f_{n-4}+f_{n-5}) + f_{n-4} = f_{n-3} + 4f_{n-4} + 2f_{n-5} $$ $$= f_{n-4} + f_{n-5} + 4f_{n-4} + 2f_{n-5} = 5f_{n-4} + 3f_{n-5} $$ 
+b) (10 points) \textit{Use this recurrence relation to show that \ldots} (Prove by induction on $n$.) \\ Induction base: \\ P(1): $f_{5} = 5$ . Since 5 is divisble by 5, so P(1) holds. \\ Induction Step: As induction hypothesis, assume that P(n) holds. Then show that P(n+1) holds. $$f_{5(n+1)} = f_{5n} + f_{5n-1} \text{ by def. of Fibonacci numbers} $$ $$= 5f_{5(n-4)} + 3f_{5(n-5)} + 5f_{5((n-1)-4)} + 3f_{5((n-1)-5} \text{ by IH}$$ Because the two terms that can be formed from the expression above can be divided by 5 from the induction hypothesis, adding the two together will still result in a multiple of 5. Therefore, the claim holds by induction on n.
+\end{solution}
+
+\goodbreak
+\noindent
+\textit{For Problems 6 and 7, use Table 1 on page 568.}
+
+\begin{problem} (5 points $\times$ 3 = 15 points)
+Section 8.4, Exercise 6 b)--d), page 575
+\end{problem}
+\begin{solution} 
+\textbf{b)} $\frac{2x}{1-2x}$ \\
+\textbf{c)} $\frac{2x-1}{(1-x)^{2}}$ \\
+\textbf{d)} $\frac{e^{x}-1}{x}$
+\end{solution}
+
+\begin{problem} (5 points $\times$ 3 = 15 points)
+Section 8.4, Exercise 8 b)--d), page 575.
+\end{problem}
+\begin{solution} 
+\textbf{b)} $3 \choose n$ * $-(-3)^{n}$ \\ 
+\textbf{c)} If n is an even integer, $2^{n}$. If n is an odd integer, 0. \\
+\textbf{d)} $\frac{n(n-1)}{2}$ for $n \geq 2$ and initial conditions $ a_{0} = 0$ $a_{1} = 0$ 
+\end{solution}
+
+\bigskip
+
+\goodbreak
+\checklist
+\end{document}

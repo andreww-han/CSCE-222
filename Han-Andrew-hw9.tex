@@ -1,0 +1,147 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+\newcommand{\name}[2]{\noindent\textbf{Name: #1}\hfill \textbf{UIN: #2}}
+\newcommand{\honor}{\noindent On my honor, as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the
+  academic work included in this assignment. Furthermore, I have
+  disclosed all resources (people, books, web sites, etc.) that have
+  been used to prepare this homework. \\[2ex]
+ \textbf{Electronic Signature: \underline{ Andrew Han } } }
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+\begin{compactitem}[$\Box$] 
+\item Did you type in your name and UIN? 
+\item Did you disclose all resources that you have used? \\
+(This includes all people, books, websites, etc.\ that you have consulted.)
+\item Did you electronically sign that you followed the Aggie Honor Code? 
+\item Did you solve all problems? 
+\item Did you submit both of the .tex and .pdf files of your homework to the correct link 
+on eCampus? 
+\end{compactitem}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Problem Set #1}\end{center}}
+\newcommand{\duedate}[1]{\begin{quote}\textbf{Due dates:} Electronic
+    submission of \textsl{yourLastName-yourFirstName-hw9.tex} and 
+    \textsl{yourLastName-yourFirstName-hw9.pdf} files of this homework is due on
+    \textbf{#1} on \texttt{http://ecampus.tamu.edu}. You will see two separate links
+    to turn in the .tex file and the .pdf file separately. Please do not archive or compress the files.  
+    \textbf{If any of the two submissions are missing, you will likely receive zero points for this 
+    homework.}\end{quote} }
+
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\Z}{\mathbf{Z}}
+
+
+\begin{document}
+\vspace*{-15mm}
+\begin{center}
+{\large
+CSCE 222 [Sections 503, 504] Discrete Structures for Computing\\[.5ex]
+Fall 2019 -- Hyunyoung Lee\\}
+\end{center}
+\problemset{9}
+\duedate{Friday, 11/15/2019 before 10:00 p.m.}
+\name{ Andrew Han }{ 227009495 }
+\begin{resources} Discrete Mathematics and its Applications 8th Edition
+\end{resources}
+\honor
+
+\bigskip
+\noindent
+Total 100 + 10 (extra credit) points.
+
+\begin{problem} (10 pts $\times$ 3 = 30 points)
+Section 8.2, Exercise 4 b), c) and d) page 551.  For each subproblem, find the 
+closed form solution for $a_n$ by answering the following step by step:
+\begin{enumerate}
+\item (2 points) What is the characteristic equation of the recurrence relation?
+\item ($2+2$ points) What are the roots of the characteristic equation?  
+Express $a_n$ in a generic form in terms of the roots you found.  
+For (d), you will get only one root; refer Theorem~2 in page~544 
+for the generic form in this case.
+\item (4 points) Find the closed form solution for $a_n$ using the initial conditions. 
+Show your work.
+\end{enumerate}
+\end{problem}
+\begin{solution} 
+\textbf{b)} 1. $ x^{2} - 7x + 10$ \\ 2. $x_{1} = 5, x_{2} = 2$ \\ 3. $$ a_{n} = \alpha 5^{n} + \beta 2^{n} $$ $$ a_{0} = \alpha + \beta = 2 $$ $$ a_{1} = 5 \alpha + 2 \beta = 1$$ $$\alpha = -1, \beta = 3$$ $$ a_{n} = -(5)^{n} + 3*(2)^{n}$$
+\textbf{c)} 1. $ x^{2} -6x + 8$ \\ 2. $x_{1} = 4, x_{2} = 2$ \\ 3. $$ a_{n} = \alpha 4^{n} + \beta 2^{n}$$ $$ a_{0} = \alpha + \beta = 4$$ $$ a_{1} = 4 \alpha + 2 \beta = 10 $$ $$ \alpha = 1, \beta = 3$$ $$ a_{n} = 4^{n} + 3*2^{n}$$
+\textbf{d)} 1. $x^{2} -2x + 1$ \\ 2. $x_{1} = 1$ \\ 3. $$ a_{n} = \alpha (1)^{n} + n \beta (1)^{n}$$ $$ a_{0} = \alpha = 4$$ $$ a_{1} = \alpha + \beta = 1$$ $$ \alpha = 4, \beta = -3$$ $$ a_{n} = 4 -3n$$
+\end{solution}
+
+\begin{problem} (5 points $\times$ 3 = 15 points)
+Let $A=\{1,2,3,4,5\}$ and $B=\{0,1,2,3,4\}$.
+\begin{enumerate}[a)] 
+\item List all the ordered pairs in the relation $R=\{(a,b)\mid a+b=5 \}$ on $A$.
+\item List all the ordered pairs in the relation $R=\{(a,b)\mid a<b \}$ on $A$.
+\item List all the ordered pairs in the relation $R=\{(a,b)\mid a<b \}$ from $A$ to $B$.
+\end{enumerate}
+\end{problem}
+\begin{solution} 
+\textbf{a)} (1,4), (2,3), (3,2), (4,1)\\
+\textbf{b)} (1,2), (1,3), (1,4), (1,5), (2,3), (2,4), (2,5), (3,4), (3,5), (4,5)\\ 
+\textbf{c)} (1,2), (1,3), (1,4), (2,3), (2,4), (3,4) 
+\end{solution}
+
+\begin{problem} (8 points $\times$ 3 = 24 points)
+Section 9.1, Exercise 6 a), b) and d), page 608 
+\end{problem}
+\begin{solution} 
+\textbf{a)} Not reflexive because if $ 1,1 \in \R, 1+1 \ne 0$ \\ Symmetric because x + y = 0 is the same as y + x =0 \\ Not anti-symmetric because if $1, -1 \in \R, 1 - 1 =0 \text{ and } -1 + 1 = 0, \text { but } 1 \ne -1$ \\ Not transitive because if $1,-1 \in \R$ and $ -1,1 \in \R, 1,1 \in \R$ is NOT true as shown above. \\
+\textbf{b)} Reflexive because if $x,x \in \R$, then $x = \pm x$ will have to be true. \\ Symmetric because if $x,y \in \R$ and $x = \pm y$, then $y,x \in \R$ and $y = \pm x$ \\ Not anti-symmetric because if $1,-1 \in \R$ and $-1,1 \in \R$, $1 \ne -1$ which means the implication that 1 = -1 is not true. \\ Transitive because if $x = \pm y$ and $y = \pm z$, then $x = \pm z$
+\end{solution}
+
+\begin{problem} (5 points $\times$ 2 = 10 points)
+Let $A$ be the set of all people and $(x,y)\in A\times A$.  Is each of the following an equivalence relation?  For each subproblem, explain which 
+of the three properties of an equivalence relation -- reflexivity, symmetry, and transitivity -- are satisfied and which are not, by explaining why or why not.Then, answer whether it is an equivalence relation.
+\begin{enumerate}[a)]
+
+\item $R_1 = \{(x,y) \mid x \text{ and } y \text{ have the same parents}\}$
+
+\item $R_2 = \{(x,y) \mid x \text{ and } y \text{ have a common grandparent}\}$
+
+\end{enumerate}
+
+\end{problem}
+
+\begin{solution} 
+
+\textbf{a)} Reflexive because if $x,x \in \R$, then x will have the same parents as x. \\ Symmetric because if $x,y \in \R$ and $y,x \in \R$, x has the same parents as y and y has the same parents as x. \\ Transitive because if $x,y \in \R$ and x has the same parents as y and $y,z \in \R$ amd y has the same parents as z, then $x,z \in \R$ and x will have the same parents as z. All three properties are satisfied, so this is an equivalence relation. \\
+\textbf{b)} Reflexive because if $x,x \in \R$ then x will have a common grandparent with x. \\ Symmetric because if $x,y \in \R$ and x and y have a common grandparent, then if $y,x \in \R$, y and x will have a common grandparent. \\ Not transitive because if $x,y \in \R$ and x and y have a common grandparent, an $y,z \in \R$ and y and z have a common grandparent, x and z don't necessraily have a common grandparent. Because not all three properties are met, this is not an equivalence relation. 
+\end{solution}
+
+\begin{problem} (10 points)
+We define on the set $\N_1=\{1,2,3,\cdots\}$ of positive integers a relation $\sim$ such that two positive integers $x$ and $y$ satisfy $x\sim y$ if and only if $x/y=2^k$ for some integer $k$. Show that $\sim$ is an equivalence relation.
+\end{problem}
+\begin{solution} 
+
+Reflexive because for $x,x \in \N_{1}, x/x = 1 = 2^{k} = 2^0$. \\ Symmetric because for $x,y \in \N_{1}, \frac{x}{y} = 2^{k}$ and $y,x \in \N_{1} = \frac{y}{n} = 2^{-k}$ because $\frac{y}{x}$ is the inverse of $\frac{x}{y}$ \\ Transitive because if $x,y \in \N_{1}$ and $y,z \in \N_{1}$, then $\frac{x}{y} = 2^k$ and $\frac{y}{z} = 2^{l}$. Then for $x,z \in \N_{1}, \frac{x}{z} = \frac{x}{y} * \frac{y}{z} = 2^{k}*2{l} = 2^{k+l}$ \\ Therefore, $\sim$ is an equivalence relation.
+\end{solution}
+
+\begin{problem} (7 points $\times$ 3 = 21 points)
+Section 9.6, Exercise 2 b), c) and e), page 662.  
+For each subproblem, explain which of the three properties of a partial ordering -- reflexivity, antisymmetry, and transitivity -- are satisfied and which are not, by explaining why or why not.  Then, answer whether it is a partial ordering.
+\end{problem}
+
+\begin{solution} 
+
+\textbf{b)} Reflexive because for each element, a, there exists a pair on the relation where $a,a \in \R$ \\ Anti-symmetric because for $2,0 \in \R, 2,3 \in \R$, the condition that $a,b \in \R \land b,a \in \R$ is false, meaning the whole statement is vacuously true. The rest of the pairs satisfies the condition $a,b \in \R \land b,a \in \R$ and implies $a=b$ \\ Transitive because for all the pairs where $a,b \in \R$ and $b,c \in \R, a,c \in \R$ also exists in the relation. Thus, the relation has all the properties of a partial ordering. \\
+\textbf{c)}  Reflexive because for each element, a, there exists a pair on the relation where $a,a \in \R$ \\ Anti-symmetric because for the two pairs, (1,2) and (3,1), $a,b \in \R$ exists but $b,a \in \R$ does not hold true, so the claim holds vacuously true. For all the other pairs, both $a,b \in \R$ and $\b,a \in \R$ hold true, making the claim true. \\ Not transitive because $3,1 \in \R$ and   $1,2 \in \R$ exist, but $3,2 \in \R$ is not true. Thus,  the relation does not have all the properties of a partial ordering. 
+
+\end{solution}
+
+
+
+\goodbreak
+
+\checklist
+
+\end{document}

@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist}
+\usepackage[normalem]{ulem}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+\newcommand{\name}[2]{\noindent\textbf{Name: #1}\hfill \textbf{UIN: #2}}
+\newcommand{\honor}{\noindent On my honor, as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the
+  academic work included in this assignment. Furthermore, I have
+  disclosed all resources (people, books, web sites, etc.) that have
+  been used to prepare this homework. \\[2ex]
+ \textbf{Electronic Signature: \underline{ Andrew Han } } }
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+\begin{compactitem}[$\Box$] 
+\item Did you type in your name and UIN? 
+\item Did you disclose all resources that you have used? \\
+(This includes all people, books, websites, etc.\ that you have consulted.)
+\item Did you electronically sign that you followed the Aggie Honor Code? 
+\item Did you solve all problems? 
+\item Did you submit both of the .tex and .pdf files of your homework to the correct link 
+on eCampus? 
+\end{compactitem}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Problem Set #1}\end{center}}
+\newcommand{\duedate}[1]{\begin{quote}\textbf{Due dates:} Electronic
+    submission of \textsl{yourLastName-yourFirstName-hw6.tex} and 
+    \textsl{yourLastName-yourFirstName-hw6.pdf} files of this homework is due on
+    \textbf{#1} on \texttt{http://ecampus.tamu.edu}. You will see two separate links
+    to turn in the .tex file and the .pdf file separately. Please do not archive or compress the files.  
+    \textbf{If any of the two submissions are missing, you will likely receive zero points for this 
+    homework.}\end{quote} }
+
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\Z}{\mathbf{Z}}
+
+
+\begin{document}
+\vspace*{-15mm}
+\begin{center}
+{\large
+CSCE 222 [Sections 503, 504] Discrete Structures for Computing\\[.5ex]
+Fall 2019 -- Hyunyoung Lee\\}
+\end{center}
+\problemset{6}
+\duedate{Tuesday, 10/15/2019 before 10:00 p.m.}
+\name{ Andrew Han }{ 227009495 }
+\begin{resources} Discrete Mathematics and its Applications 8th Edition
+\end{resources}
+\honor
+
+\bigskip
+\noindent
+Total 100 points.
+
+\begin{problem} (13 points) 
+Section 5.1, Exercise 8, page 350.  Prove by induction on $n$.
+\end{problem}
+\begin{solution}
+Induction Base: \\* Consider this expression as P(n). $$ P(0): 2(-7)^{0} = 2 = (1 - (-7)^{0+1})/4 = 2$$ \\* Thus, the claim holds for P(0). \\* 
+Induction Step: As induction hypothesis, suppose that P(n) holds. Then, $$P(n+1): 2 - 2(7)^{1} + 2(7)^{2} - ... + 2(-7)^{n} + 2(-7)^{n+1} = (1-(-7)^{n+1})/4) + 2(-7)^{n+1} \text{ by IH}$$ $$ =  \frac{1-(-7)^{n+1} + 8(-7)^{n+1}}{4}  $$ $$ = \frac{1+(-7)^{n+1}(-1 + 8)}{4} \text{ factor out } (-7)^{n+1}$$ $$ = \frac{1 + (-7)^{n+1}(7)}{4} = \frac{1 - (-7)^{n+1}(-7)}{4} $$ $$ = \frac{1-(-7)^{n+2}}{4} $$ \\* Thus, the claim follows by induction on n. 
+\end{solution}
+
+\begin{problem} ($7+13=20$ points) 
+Section 5.1, Exercise 10, page 350.  For b), prove by induction on $n$.
+\end{problem}
+\begin{solution}
+\textbf{a)} We can find a formula for this expression by looking at the first terms to see any patterns. $$\text{n=1 } \frac{1}{1*2} = \frac{1}{2} $$ $$\text{n=2 } \frac{1}{1*2} + \frac{1}{2*3} = \frac{4}{2*3} $$ \\* Looking at the results for n = 1,2, we can notice some patterns. The numerator can be denoted as $n^{2}$ in both cases. The denominator can be written as $n(n+1)$ in both cases as well. From this, we can create a formula for the expression $$ \frac{n^2}{n(n+1)} $$ $$ \frac{n}{n+1} $$ \\*
+\textbf{b)}  Induction Base: \\* Consider the expression as P(n), for any positive integer n. $$ P(1): \frac{1}{1*2} = \frac{1}{2} = \frac{1}{1+1} = \frac{1}{2} $$ Thus, the claim holds for P(1). \\* Induction Step: As induction hypothesis, suppose that P(n) holds. Then, $$ P(n+1): \frac{1}{1*2} + \frac{1}{2*3} + ... + \frac{1}{n(n+1)} + \frac{1}{n+1((n+1)+1)} $$ $$ = \frac{n}{n+1} + \frac{1}{n+1((n+1)+1)} \text{ by IH}$$ $$ = \frac{(n)((n+1)+1) + 1}{(n+1)((n+1)+1)}$$ $$ = \frac{n^{2}+ 2n + 1}{n+1(n+2)} = \frac{(n+1)^2}{n+1(n+2)} = \frac{n+1}{n+2}$$ \\* Therefore, the claim holds by induction on n.
+\end{solution}
+
+\begin{problem} (13 points)
+Section 5.1, Exercise 14, page 351.  Prove by induction on $n$.
+\end{problem}
+\begin{solution}
+Induction Base: Consider this expression as P(n), for every positive integer n. $$P(1): 1*2^{1} = 2 = (1-1)*2^{1+1} + 2 = 2$$ Thus, the claim holds for P(1). \\* Induction Step: As induction hypothesis, suppose P(n) holds. Then, $$P(n+1): \sum^{n}_{k=1} k2^{k} + (n+1)2^{n+1}$$ $$ = (n-1)2^{n+1} + 2 +  (n+1)2^{n+1} \text{ by IH} $$ $$ = 2^{n+1}(n - 1 + n + 1) + 2 \text{ by factoring }2^{n+1}$$ $$ = 2^{n+1}(2n) +2 $$ $$ = ((n+1)-1)2^{(n+1)+1} + 2 $$ Thus, the claim holds by induction on n.
+\end{solution}
+
+\begin{problem} (13 points)
+Section 5.1, Exercise 24, page 351.  Prove by induction on $n$.
+\end{problem}
+\begin{solution}
+Induction Base: Consider the expression is P(n), for every positive integer n. $$P(1): 1/(2*1) = 1/2 \leq (2*1 - 1)/(2*1) = 1/2 $$ Thus, the claim holds for P(1). \\*
+Induction Step: As induction hypothesis, suppose that P(n) holds. Then, $$P(n+1): [1*3*5*...*(2n-1)*(2(n+1)-1)]/(2*4*...*2n*2(n+1))$$ $$ = (1/2n) * (2(n+1)-1)/(2(n+1) \text{ by IH}$$ $$ = \frac{1}{4n} \text{ by cancelling terms out}$$ $$ \frac{1}{2n} \leq \frac{1}{4n} $$ Thus, the claim holds by induction on n.
+\end{solution}
+
+\begin{problem} (13 points) 
+Section 5.1, Exercise 34, page 351.  Prove by induction on $n$.
+\end{problem}
+\begin{solution}
+Induction Base: $0^{3} - 0 = 0 $ Since 6 can divide 0, the theorem holds for n=0. \\*
+Induction Step: Suppose that $n^{3} - n$ is divisible by 6. We want to show that $(n+1)^{3} - (n+1)$ is also divisible by 6. $$ (n+1)^{3} - (n+1) = n^{3} + 3n^{2} + 3n + 1 - n - 1 =(n^{3}-n) + 3n^{2} + 3n = (n^{3}-n) + 3n(n+1) $$ Through the induction hypothesis, we know that $n^{3} - n$ is divisible by 6. We have to show that $3n(n+1)$ is divisible by 6 as well. If we ignore the 3 leading the expression, we have $n(n+1)$, which should always return an even number because one of these two numbers will have to be an even number, by definition. If a number is even, then it will be divisible by 2. If we revisit the 3 that we ignored in the expression, multiplying $n(n+1)$, which is divisible by 2, by 3, we will get a number that is divisible by 6. The sum of two products that are divisible by 6 will also be divisible by 6. Therefore, the claim holds by induction on n. 
+\end{solution}
+
+\begin{problem} (3 pts $\times$ 5 = 15 points) 
+Section 5.2, Exercise 4, page 363
+\end{problem}
+\begin{solution}
+\textbf{a)} Induction Basis: if the postage is \\* 
+18 cents: use one 4-cent stamp and two 7-cent stamps (18 = 1*4 + 7*2) \\*
+19 cents: use three 4-cent stamps and one 7-cent stamp (19 = 3*4 + 7*1) \\*
+20 cents: use five 4-cent stamps and zero 7-cent stamps (20 = 5*4 + 7*0) \\*
+21 cents: use zero 4-cent stamps and three 7-cent stamps (21 = 0*4 +7*3) \\*
+\textbf{b)} As induction hypothesis, suppose that P(n) is true, for n $\geq$ 18. That means any amount of postage from 18 to n can be made by using 4-cent and 7-cent stamps. \\*
+\textbf{c)} The inductive step needs to prove that P(n+1) is true, which means that a postage that costs n+1 cents can be made through only 4-cent stamps and 7-cent stamps. \\*
+\textbf{d)} The induction basis proved the combinations of postages from 18 to 21 cents can all be made from 4-cent and 7-cent stamps only. Through this, we can assume $n+1 \geq 22$ which is the same as $(n+1)-4 \geq 18 $. By inductive hypothesis, we can make postage for (n+1)-4 cents using m 4-cent stamps and k 7-cent stamps. This means ((k+1)-4) = 4m + 7k. Therefore, k+1=4m+4+7k = k+1=4(m+1)+7k. Therefore, the claim follows by strong induction on n. \\*
+\textbf{e)} The induction basis and step were worked out above. By strong induction, the expression holds for all integers greater than 18.
+\end{solution}
+
+\begin{problem} (13 points) 
+Section 5.2, Exercise 12, page 363
+\end{problem}
+\begin{solution}
+Induction Base: Consider the expression as P(n). $$P(1): 1 = 2^{0} $$ Thus, the claim holds for P(1). \\*
+Induction Step: As induction hypothesis, suppose that P(n) holds true for all positive integers n. If n + 1 is even, $$ \frac{n+1}{2} \text{ is an integer by definition} $$ By the induction hypothesis, $\frac{n+1}{2}$ can be written as the sum of distinct powers of two. This means that n+1 will be the sum of integers that make up $\frac{n+1}{2}$, but with a power of one more than the previous sequence, because the expression is being multiplied by 2. As long as all the powers are incremented by 1, the powers of two will still be distinct, satisfying the expression. \\* If n+1 is odd, then n has to be an even number. The induction hypothesis lets us show n as a sum of distinct powers of two. However, a sum of powers of 2 will only yield numbers that are even and no odd numbers. In order for n+1 to be odd, 1 will have to be added to the sum of distinct powers of two. To complete this, $2^{0}$ can be added to the sum, which is equal to 1, and is a distinct power of two, satisfying the qualifiications for this expression. Because both cases of k+1 being even or odd can be expressed as a sum of distinct powers of two, the claim holds true for all positive integers by strong induction. 
+\end{solution}
+
+\goodbreak
+\checklist
+\end{document}

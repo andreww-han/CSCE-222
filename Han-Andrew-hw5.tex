@@ -1,0 +1,128 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist}
+\usepackage[normalem]{ulem}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+\newcommand{\name}[2]{\noindent\textbf{Name: #1}\hfill \textbf{UIN: #2}}
+\newcommand{\honor}{\noindent On my honor, as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the
+  academic work included in this assignment. Furthermore, I have
+  disclosed all resources (people, books, web sites, etc.) that have
+  been used to prepare this homework. \\[2ex]
+ \textbf{Electronic Signature: \underline{ Andrew Han} } }
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+\begin{compactitem}[$\Box$] 
+\item Did you type in your name and UIN? 
+\item Did you disclose all resources that you have used? \\
+(This includes all people, books, websites, etc.\ that you have consulted.)
+\item Did you electronically sign that you followed the Aggie Honor Code? 
+\item Did you solve all problems? 
+\item Did you submit both of the .tex and .pdf files of your homework to the correct link 
+on eCampus? 
+\end{compactitem}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Problem Set #1}\end{center}}
+\newcommand{\duedate}[1]{\begin{quote}\textbf{Due dates:} Electronic
+    submission of \textsl{yourLastName-yourFirstName-hw5.tex} and 
+    \textsl{yourLastName-yourFirstName-hw5.pdf} files of this homework is due on
+    \textbf{#1} on \texttt{http://ecampus.tamu.edu}. You will see two separate links
+    to turn in the .tex file and the .pdf file separately. Please do not archive or compress the files.  
+    \textbf{If any of the two submissions are missing, you will likely receive zero points for this 
+    homework.}\end{quote} }
+
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\Z}{\mathbf{Z}}
+
+
+\begin{document}
+\vspace*{-15mm}
+\begin{center}
+{\large
+CSCE 222 [Sections 503, 504] Discrete Structures for Computing\\[.5ex]
+Fall 2019 -- Hyunyoung Lee\\}
+\end{center}
+\problemset{5}
+\duedate{Tuesday, 10/8/2019 before 10:00 p.m.}
+\name{ Andrew Han }{ 227009495 }
+\begin{resources} Discrete Mathematics and Its Applications 8th edition
+\end{resources}
+\honor
+
+\bigskip
+\noindent
+Total 100 (+ 10 extra) points.
+
+\begin{problem} (8 pts $\times$ 2 = 16 points)
+Section 3.3, Exercise 14, pages 242--243. \textit{Explain.}
+\end{problem}
+\begin{solution}
+\textbf{a)} Initially, y = 3 and c = 2. The loop begins and i = 1. For this iteration of the loop, $ y = 3 * 2 + 1 = 7$ because c will remain constant at 2, y is assigned the value of 3 at this point in the loop, and $a_{n-1}$ is 1 because the coefficient of the next element in the sequence is 1. Now i =2 and the expression for y becomes $ y = 7 * 2 + 1 = 15$ because y is assigned 7 in the previous iteration, c is still 2, and the next element in the sequence is 1. 
+\\*
+\textbf{b)} The procedure shows that for each iteration in the loop, there is one multiplication operator and one addition operator. This means that this algorithm will have exactly n multiplications and additions for a polynomial of degree n. 
+\end{solution}
+
+\begin{problem} (3 pts $\times$ 8 = 24 points)
+Section 3.3, Exercise 16 a), b), d), e) and f), page 243. \textit{Explain.}
+\end{problem}
+\begin{solution}
+There are 86400 seconds in a day and if each operation takes $10^{-11}$ seconds, that means $8.64 *10^{15}$ operations can occur in a day.
+\\*
+\textbf{a)} $ f(n) \leq 8.64 *10^{15}$ \\* $log(n) \leq 8.64 *10^{15}$ \\* $n \leq 2^{8.64 *10^{15}}$ \\* $n=2^{8.64 *10^{15}}$ \\*
+\textbf{b)} $f(n) \leq  8.64 *10^{15}$ \\* $ 1000n \leq 8.64 *10^{15}$ \\*  $n \leq 8.64 *10^{12}$ \\* $n=8.64 *10^{12}$ \\*
+\textbf{d)} $f(n) \leq  8.64 *10^{15}$ \\* $ 1000n^{2} \leq 8.64 *10^{15}$ \\*  $n^{2} \leq 8.64 *10^{12}$ \\* $n=3162277.66$ \\*
+\textbf{e)} $f(n) \leq  8.64 *10^{15}$ \\* $ n^{3} \leq 8.64 *10^{15}$ \\*  $n \leq 205197.1136$ \\* $n=205197.1136$ \\*
+\textbf{f)}  $ f(n) \leq 8.64 *10^{15}$ \\* $2^{n} \leq  8.64 *10^{15}$ \\*$ n \leq log_{2} 8.64 *10^{15}$ \\ $ n = log_{2} 8.64 *10^{15}$ \\*
+\end{solution}
+
+\begin{problem} (5 pts $\times$ 3 = 15 points) 
+Section 2.4, Exercise 6 b), d) and h), page 177
+\end{problem}
+\begin{solution}
+\textbf{b)}1,3,6,10,15,21,28,36,45,55
+\\*
+\textbf{d)} 1,1,1,2,2,2,2,2,3,3
+\\*
+\textbf{h)} 1,2,2,2,2,3,3,3,3,3
+\end{solution}
+
+\begin{problem} (5 pts $\times$ 3 = 15 points) 
+Section 2.4, Exercise 10 a), b) and e), page 177
+\end{problem}
+\begin{solution}
+\textbf{a)} 2,-4,8,-16,32,-64 \\*
+\textbf{b)} -3, -2, 1, 3, 2, -1 \\*
+\textbf{c)} 2, 1, 1, 2, 2, 1
+\end{solution}
+
+\begin{problem} (5 pts $\times$ 4 = 20 points) 
+Section 2.4, Exercise 16 a), b), c) and d), page 178. \textit{Explain.}
+\end{problem}
+\begin{solution}
+\textbf{a)} The condition for $a_{n}$ is that it will be the previous term negated. This means that to find $a_{n}$, you will alternate whether the term will be positive or negative, depending on what n is. The solution will be $(-1)^{2} (5)$ because $a_{0}$ is 5 and the absolute value of this will not change if we are just negating terms. \\*
+\textbf{b)} The condition for $a_{n}$ is that it will be the previous term plus 3. This means that we can just start with our initial value, 1, and $a_{n}$ will be 1 plus 3 * the number of terms. Therefore, $a_{n} = 3n + 1$ \\*
+\textbf{c)} The condition for $a_{n}$ is that it will be the previous term minus n. n will be incrementing for each iteration, so this can almost be treated as a for loop. The initial value, 4, will be subtracted by the sum of values from 1 to n. This can be written out as 4 - (1+2+3...+n). As seen in class, we find the number of operations occurring in a for loop by taking the final term, n, subtracted by the first term, 1, and then added by one again to get the number of times the loop iterates. This yields n in this case. Then, we flip the range of terms and add it to the original range and then divide the sum by two. This yields $\frac{n+1}{2}$ in this case. Multiplying this by the number of iterations, we get $\frac{n(n+1)}{2}$ which will give us the summation of values from 1 to n. Therefore, the solution for this recurrence relation is $4 - \frac{n(n+1)}{2}$ \\*
+\textbf{d)} We are given that $$a_{n} = 2a_{n-1} -3$$  $$a_{0} = -1$$ \\* In this expression, $a_{n}$ can be re-written using $a_{n-2}$. $$a_{n} = 2(2a_{n-2} - 3) - 3 $$ \\* Upon closer look, the expression can be expressed using powers of 2 to simplify and try to find a pattern in the recursion. $$a_{n} = 2^{2}(a_{n-2}) - 3*2^1$$
+$$ 2^{i}(a_{n-i}) - 3*2^{i-1} \text{ as i goes from 0 to n} $$ \\* Once i reaches n, the expression becomes $$2^{n}(a_{n-n}) - 3*2^{n-1}$$ \\* $a_{0}$ is given as -1 already, so the expression is now $$-2^{n} - 3 * 2^{n-1}$$	\\* The right portion of the expression is the summation of $3*2^{i}$ as i goes to n-1. Utilizing the method we learn in class for evalutating recursive summations, it will evaluate to $3*(2^{n}-1)$ The entire expression can then be rewritten as $$-2^{n} - 3(2^{n}-1)$$ \\* Therefore, $a_{n} = -4(2^{n}) + 3$
+\end{solution}
+
+\begin{problem} (5 pts $\times$ 4 = 20 points) 
+Section 2.4, Exercise 34, page 179
+\end{problem}
+\begin{solution}
+\textbf{a)} $(1-1) + (1-2) + (2-1) + (2-2) + (3 - 1) + (3 - 2) = 3$ \\*
+\textbf{b)} $(0+0) + (0+2) + (0+4) + (3+0) + (3 + 2) + (3+ 4) + (6 + 0) + (6 + 2) + (6 + 4) + (9+ 0) + (9+2) + (9+4) = 78$ \\*
+\textbf{c)} $(0 + 1 + 2) * 3 = 9$ \\*
+\textbf{d)} $(1*1) + (1*8) + (1*27) + (4*1) + (4*8) + (4*27) = 180$ 
+\end{solution}
+
+
+\goodbreak
+\checklist
+\end{document}

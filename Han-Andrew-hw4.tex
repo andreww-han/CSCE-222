@@ -1,0 +1,221 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,mathabx,latexsym,paralist}
+\usepackage[normalem]{ulem}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+\newcommand{\name}[2]{\noindent\textbf{Name: #1}\hfill \textbf{UIN: #2}}
+\newcommand{\honor}{\noindent On my honor, as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the
+  academic work included in this assignment. Furthermore, I have
+  disclosed all resources (people, books, web sites, etc.) that have
+  been used to prepare this homework. \\[2ex]
+ \textbf{Electronic Signature: \underline{ Andrew Han } } }
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+\begin{compactitem}[$\Box$] 
+\item Did you type in your name and UIN? 
+\item Did you disclose all resources that you have used? \\
+(This includes all people, books, websites, etc.\ that you have consulted.)
+\item Did you electronically sign that you followed the Aggie Honor Code? 
+\item Did you solve all problems? 
+\item Did you submit both of the .tex and .pdf files of your homework to the correct link 
+on eCampus? 
+\end{compactitem}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Problem Set #1}\end{center}}
+\newcommand{\duedate}[1]{\begin{quote}\textbf{Due dates:} Electronic
+    submission of \textsl{yourLastName-yourFirstName-hw4.tex} and 
+    \textsl{yourLastName-yourFirstName-hw4.pdf} files of this homework is due on
+    \textbf{#1} on \texttt{http://ecampus.tamu.edu}. You will see two separate links
+    to turn in the .tex file and the .pdf file separately. Please do not archive or compress the files.  
+    \textbf{If any of the two submissions are missing, you will likely receive zero points for this 
+    homework.}\end{quote} }
+
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\Z}{\mathbf{Z}}
+
+
+\begin{document}
+\vspace*{-15mm}
+\begin{center}
+{\large
+CSCE 222 [Sections 503, 504] Discrete Structures for Computing\\[.5ex]
+Fall 2019 -- Hyunyoung Lee\\}
+\end{center}
+\problemset{4}
+\duedate{Monday, 9/30/2019 before 10:00 p.m.}
+\name{ Andrew Han }{ 227009495 }
+\begin{resources} Dr.Lee's slides on Sets and Functions, Complexity of Algorithims
+\end{resources}
+\honor
+
+\bigskip
+\noindent
+Total 100 points.
+
+\begin{problem} (5 points)
+Let $x$ be a real number and $n$ an integer. Show that
+$$\lceil x \rceil = n \text{ if and only if } x\le n < x+1.$$
+
+\noindent
+[Hint: Use the definition for $\lceil x \rceil = n$ given as the second fact among the four facts 
+in slide \#39 in the lecture slides on Sets and Functions.  What you are proving here is the 
+last fact in the same slide.]
+\end{problem}
+\begin{solution}
+One of the facts on slide \#39 is that 
+$$\lceil x \rceil = n \text{ if and only if } n-1< x \leq n.$$
+From this, you can derive a new inequality by looking at the separate parts. We can take the right side of the inequality and have n be in the middle.
+$$ x \leq n $$
+Then we can rearrange the left part of the inequality to be 
+$$ n < x + 1 $$ 
+Putting these together, we get 
+$$ x \leq n < x + 1 $$ 
+\end{solution}
+
+\begin{problem} (15 points)
+Let $n$ be a positive integer. Show that if $n$ is a perfect square, then 
+$$\lfloor \sqrt{n} \rfloor - \lfloor \sqrt{n-1} \rfloor = 1.$$
+
+\noindent
+[Hint: Use the definition for $\lfloor x \rfloor = n$ given as the first fact among the four facts 
+in slide \#39 in the lecture slides on Sets and Functions.]
+\end{problem}
+\begin{solution}
+The definition of a floor is 
+$$ \lfloor x \rfloor = n \text { if and only if } n \leq x < n + 1 $$ 
+We can substitute the x value as n in the case, and replace n with x to get
+$$ x \leq \sqrt{n} < x + 1 $$ 
+If n is a perfect square, $ \sqrt{n}$ will be an integer by the definition of a perfect square. If the result of the square root is an integer, 
+$$ \lfloor \sqrt{n} \rfloor \text{ will be equal to } \sqrt{n} $$
+Looking at $\sqrt{n-1}$, we just stated that $\sqrt{n}$ is going to be an integer because it is a perfect square. This means that $\sqrt{n-1}$ will return a value that is not an integer and will be less than $\sqrt{n}$. This means that the floor of $\sqrt{n-1}$ will have to be the next lowest integer from $\sqrt{n}$. Therefore,
+$$ \lfloor \sqrt{n} \rfloor - \lfloor \sqrt{n-1} \rfloor = 1$$
+
+\end{solution}
+
+\begin{problem} (10 points) 
+Let $f_1, f_2, f_3$ be functions from the set $\N$ of natural numbers
+to the set $\R$ of real numbers. Suppose that $f_1= O(f_2)$ and
+$f_2=O(f_3)$. Is it possible that 
+$$ f_1(n) > f_3(n)$$ 
+holds for all natural numbers $n$?
+Give an example for $f_1$, $f_2$, and $f_3$ if it is possible, or 
+give an explanation (convincing argument or proof) if it is impossible.
+
+\noindent
+[Hint: Think carefully about the \textit{definition} of a function being in big-Oh of another 
+function \textit{as given in class}.]
+\end{problem}
+\begin{solution}
+In order for a function to be in the big-oh of another funtction, the following needs to be true
+$$ |f(n)| \leq U|g(n)| \text{ for all  }n \geq n_{0}$$
+It is given that $ f_{1} = O(f_{2})$. This means that 
+$$  |f_{1}(n_{1})| \leq U_{1}|f_{2}(n_{1})| \text{ for all } n_{1} \geq n_{0}$$
+It is also given that $ f_{2} = O(f_{3})$. This means that 
+$$  |f_{2}(n_{2})| \leq U_{2}|f_{3}(n_{2})| \text{ for all } n_{2} \geq n_{0}$$
+With the given statements about $ f_{1}, f_{2}, f_{3} $ and which functions are in the big-oh function of others, we know that $f_{1} \text{ is upper bounded by }f_{2} \text{ and } f_{2} \text{ is upper bounded by } f_{3}$. Therefore, it is not possible that $ f_{1}(n) > f_{3}(n)$
+\end{solution}
+
+\begin{problem} (10 pts $\times$ 3 = 30 points) 
+Determine whether each of the following statements is true or false.
+In each case, answer true or false, and justify your answer (by giving a direct proof
+if it is true, or a proof by contradiction if it is false; always use the definition involving
+the absolute values, as given in class).
+\begin{enumerate}[a)]
+\item $3n^2+41 = O(n^3)$
+  \begin{solution}
+True. In order for the statement above to be true, 
+$$ |3n^2 + 41| \leq U|(n^3)| \text{ for all n } \geq n_{0} $$
+Because n is a positive integer, we can get rid of the absolute value bars and simplify the expression to
+$$  \frac{3n^2 + 41}{n^3} \leq U$$
+If we set $ n_{0}$ to 10 and U to .341, the expression will hold for all $ n \geq n_{0} $ making the claim hold true.
+  \end{solution}
+\item $n^3+2n+3 = O(n^2)$
+  \begin{solution}
+False. In order for a function to in the big-oh of another, the inequality stated above needs to be satisfied. If we simplify this expression above we get
+$$ \frac{n^3 + 2n + 3}{n^2} \leq U $$ 
+The expression will continue to grow as n increases because $n^3$ is in the numerator and $n^2$ is the denominator. This means that there will be no constant we can set so that the function will not outgrow it, making the claim false.
+  \end{solution}
+\item $\frac{1}{2}n^2+5 = \Omega(n)$
+  \begin{solution}
+True. The definition for big-omega in this case would be 
+$$ L|n| \leq | \frac{1}{2}n^2 + 5 | \text{ for all n } \geq n_{0} $$ 
+Dividing both sides by n and dropping the absolute value bars yields
+$$ L \leq | \frac{1}{2}n + \frac{5}{n} | \text{ for all n } \geq n_{0} $$
+This will be a growing function as n increases. If $n_{0}$ is set to 20 and L is set to 10.25, the expression will hold for all $ n \geq n_{0}$ making the claim true. 
+  \end{solution}
+\end{enumerate}
+\end{problem}
+
+\begin{problem} (10 points)
+Let $k$ be a fixed positive integer. Show that 
+$$ 1^k+2^k+\cdots + n^k  = O(n^{k+1}) $$ holds.
+\end{problem}
+\begin{solution}
+In order for the function on the left to be in big-oh of $n^k+1$, we need to show that it will always be upper bounded by $n^k+1$. Using the definition of big-oh, the expression can be rearranged to
+$$ \frac {1^k + 2^k +...+ n^k}{n^k+1} = U $$ 
+The denominator of the fraction will always have an exponent that is one degree higher than the elements being added in the numerator. This means that each element will be being divided by a bigger number. The claim will hold true for U that is determined based off of what n and k are set to. 
+\end{solution}
+
+\begin{problem} (15 points)
+Let $f_1, f_2, f_3, f_4$ be functions from the set $\N$ of natural numbers
+to the set $\R$ of real numbers. Suppose that $f_1= O(f_2)$ and
+$f_3=O(f_4)$. Use the \textit{definition} of Big Oh \textit{given in class} to prove that 
+$$f_1(n) + f_3(n) = O(\max(|f_2(n)|,  |f_4(n)| ) ).$$
+\end{problem}
+\begin{solution}
+The definition of big-oh for this problem would be 
+$$ |f_{1}(n)| + |f_{3}(n)| \leq U |(\text{max}(|f_{2}(n)|,|f_{4}(n)|))|$$
+It is given that $f_{1} = O(f_{2})$ and $ f_{3} = O(f_{4)}$. This means that if $f_{2}$ is larger than $f_{4}$, $f_{1}$ will be upper bounded by $f_{2}$ (by what is given) and $f_{3}$ will also be upper bounded by $f_{2}$ due to the fact that $f_{3} = O(f_{4})$ and $f_{2} > f_{4}$. This will also apply for when $f_{4}$ is larger than $f_{2}$. The claim above will hold true if both $f_{1}$ and $f_{3}$ are upper bounded by max$(|f_{2}(n)|,|f_{4}(n)|)$.
+\end{solution}
+
+\begin{problem} (5 pts $\times$ 3 = 15 points)
+Suppose that you have two algorithms $A$ and $B$ that solve the same
+problem. Algorithm $A$ has worst case running time $T_A(n) = 2n^2-2n+1$ 
+and Algorithm $B$ has worst case running time $T_B(n) = n^2+n-1$. 
+\begin{enumerate}[a)]
+\item Show that both $T_A(n)$ and $T_B(n)$ are in $O(n^2)$. 
+\item Show that $T_A(n) = 2n^2 + O(n)$ and $T_B(n) = n^2 +O(n)$. 
+\item Explain which algorithm is preferable. 
+\end{enumerate}
+\end{problem}
+\begin{solution}
+\textbf{a)} For $T_{A}(n)$ to be in $O(n^2)$, the following needs to be true.
+$$ |2n^2 - 2n + 1| \leq U|n^2| $$ 
+Dividing both sides by $n^2$ and dropping the absolute value bars gives us
+$$ 2 - \frac{2}{n} + \frac{1}{n^2} \leq U \text{ for all n } \geq n_{0}$$ 
+If $n_{0}$ is set to 1 and U is set to 2, the claim will hold true for algorithm A because $\frac{2}{n}$  will always subtract more than $\frac{1}{n^2}$ can add.
+\\* \\*
+For  For $T_{B}(n)$ to be in $O(n^2)$, the following needs to be true.
+$$ |n^2 + n - 1| \leq U|n^2| $$ 
+Dividing both sides by $n^2$ and dropping the absolute value bars gives us
+$$ 1 + \frac{1}{n} - \frac{1}{n^2} \leq U \text{ for all n } \geq n_{0}$$
+If $n_{0}$ is set to 2 and U is set to 1.25, the claim will hold true for algorithm B. 
+\\*
+\textbf{b)} Subtract $T_{A}(n)$ by $2n^2$ to get
+$$ -2n + 1 = O(n) $$ 
+By the defintion of big-oh notation
+$$ |-2n+1| \leq U|n| \text{ for all n } \geq n_{0} $$ 
+$$ |-2+\frac{1}{n} | \leq U \text{ for all n } \geq n_{0} $$ 
+If $n_{0}$ is set to 1 and U is 2, the claim will hold true for $T_{A}(n)$.
+\\* \\*
+Subtract $T_{B}(n)$ by $n^2$ to get 
+$$ n - 1 = O(n) $$ 
+By the definition of big-oh notation
+$$ |n-1| \leq U|n| \text{ for all n } \geq n_{0} $$ 
+$$ |1-\frac{1}{n}| \leq U \text{ for all n } \geq n_{0} $$ 
+If $n_{0}$ is set to 1 and U is 1, the claim will hold true for $T_{B}(n)$. This means that algorithm B has a shorter worst-case run time, making it the preferable algorithm to use. 
+\\* \\*
+\textbf{c)} In part B, we proved that $T_{A}(n) = 2n^2 + O(n) $ and $T_{B}(n) = n^2 + O(n)$ 
+
+\end{solution}
+
+\goodbreak
+\checklist
+\end{document}
